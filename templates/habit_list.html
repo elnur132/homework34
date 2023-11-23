@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>СПИСОК ПРИВЫЧЕК</h1>
+  <ul>
+    {% for habit in habits %}
+      <li><a href="{% url 'task-list' habit.id %}">{{ habit.name }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'habit-create' %}">Создать новую привычку</a>
+{% endblock %}

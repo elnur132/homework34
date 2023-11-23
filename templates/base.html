@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш Заголовок</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="{% url 'habit-list' %}">Привычки</a></li>
+                <li><a href="{% url 'task-list' 1 %}">Задачи</a></li>
+            </ul>
+        </nav>
+        <div>
+            <img  class="logo" src="{% static 'images/logo.png' %}" alt="Логотип моей компании">
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ year }} ТОО "HABIT"</p>
+    </footer>
+</body>
+</html>

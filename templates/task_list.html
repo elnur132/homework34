@@ -1,0 +1,15 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+  <h1>Задачи для "{{ habit.name }}"</h1>
+  <ul>
+    {% for task in tasks %}
+      <li> 
+        <a href="{% url 'task-update' habit.id task.id %}">{{ task.title }} ({{ task.death_line }})</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'task-create' habit.id %}">Создать новую задачу</a>
+  <a href="{% url 'habit-list' %}">Вернуться к списку привычек</a>
+
+{% endblock %}

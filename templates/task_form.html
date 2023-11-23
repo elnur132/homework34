@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{% if form.instance.id %}Редактировать{% else %}Создать{% endif %} задачу для "{{ habit.name }}"</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+  </form>
+  <a href="{% url 'task-list' habit.id %}">Вернуться к списку задач</a>
+  <a href="{% url 'habit-list' %}">Вернуться к списку привычек</a>
+{% endblock %}
